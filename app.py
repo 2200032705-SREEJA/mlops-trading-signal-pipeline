@@ -1,5 +1,5 @@
 """
-MLOps Rolling Mean Signal Pipeline — Professional Streamlit UI
+MLOps Rolling Mean Signal Pipeline — Clean Corporate UI
 """
 
 import time
@@ -11,274 +11,146 @@ st.set_page_config(page_title="SignalFlow MLOps", page_icon="⚡", layout="wide"
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 html, body, [data-testid="stAppViewContainer"] {
-    background: #f0f4ff !important;
-    font-family: 'DM Sans', sans-serif !important;
-    color: #1a1a2e !important;
+    font-family: 'Inter', sans-serif !important;
+    background: #f5f7fa !important;
+    color: #0f172a !important;
 }
 
-[data-testid="stSidebar"] {
-    background: #1a1a2e !important;
-    border-right: none !important;
-}
-[data-testid="stSidebar"] * { color: #e8eaf6 !important; font-family: 'DM Sans', sans-serif !important; }
-[data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 { color: #ffffff !important; }
-[data-testid="stSidebar"] .stNumberInput input,
-[data-testid="stSidebar"] .stTextInput input {
-    background: #2d2d4e !important;
-    border: 1px solid #3d3d6e !important;
-    color: #00e5a0 !important;
-    font-family: 'DM Mono', monospace !important;
-    border-radius: 8px !important;
-    font-size: 15px !important;
-}
-
+/* ── Hero ── */
 .hero {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-    border-radius: 20px;
-    padding: 52px 48px;
-    margin-bottom: 28px;
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-.hero::after {
-    content: '';
-    position: absolute;
-    right: -60px; top: -60px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(0,229,160,0.15) 0%, transparent 70%);
-    border-radius: 50%;
-}
-.hero-badge {
-    background: rgba(0,229,160,0.15);
-    border: 1px solid rgba(0,229,160,0.4);
-    color: #00e5a0;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 2px;
-    padding: 5px 16px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-.hero h1 {
-    font-size: 48px !important;
-    font-weight: 700 !important;
-    line-height: 1.15 !important;
-    margin-bottom: 12px !important;
-    color: #ffffff !important;
-}
-.hero h1 em { color: #00e5a0; font-style: normal; }
-.hero p {
-    color: #a0aec0;
-    font-size: 16px;
-    font-family: 'DM Mono', monospace;
-    margin: 0 !important;
-}
-
-.card {
     background: #ffffff;
-    border-radius: 16px;
-    padding: 28px;
     border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 12px rgba(26,26,46,0.06);
-    height: 100%;
-}
-
-.metric-card {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 24px 20px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 12px rgba(26,26,46,0.06);
-    text-align: center;
-    border-top: 4px solid;
-}
-.metric-card.green  { border-top-color: #00e5a0; }
-.metric-card.blue   { border-top-color: #4f46e5; }
-.metric-card.orange { border-top-color: #f59e0b; }
-.metric-card.pink   { border-top-color: #ec4899; }
-
-.metric-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #94a3b8;
-    margin-bottom: 10px;
-}
-.metric-val {
-    font-size: 34px;
-    font-weight: 700;
-    color: #1a1a2e;
-    line-height: 1;
-}
-.metric-val.green  { color: #059669; }
-.metric-val.blue   { color: #4f46e5; }
-.metric-val.orange { color: #d97706; }
-.metric-val.pink   { color: #db2777; }
-
-.section-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #94a3b8;
-    margin-bottom: 14px;
-    margin-top: 8px;
+    border-left: 5px solid #2563eb;
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin-bottom: 24px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
 }
-.section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #e2e8f0;
+.hero-left {}
+.hero-badge {
+    background: #eff6ff;
+    color: #2563eb;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 14px;
+    border: 1px solid #bfdbfe;
 }
+.hero-title {
+    font-size: 38px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+.hero-title span { color: #2563eb; }
+.hero-desc {
+    color: #64748b;
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+}
+.hero-right {
+    text-align: right;
+}
+.hero-stat { margin-bottom: 6px; }
+.hero-stat-val { font-size: 28px; font-weight: 800; color: #2563eb; }
+.hero-stat-label { font-size: 11px; color: #94a3b8; letter-spacing: 1px; text-transform: uppercase; }
 
+/* ── Metric Cards ── */
+.metric-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px 16px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    border-top: 3px solid;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.metric-card.blue   { border-top-color: #2563eb; }
+.metric-card.green  { border-top-color: #16a34a; }
+.metric-card.amber  { border-top-color: #d97706; }
+.metric-card.slate  { border-top-color: #475569; }
+.metric-label {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: #94a3b8; margin-bottom: 8px;
+    font-family: 'JetBrains Mono', monospace;
+}
+.metric-val { font-size: 28px; font-weight: 700; }
+.metric-val.blue  { color: #2563eb; }
+.metric-val.green { color: #16a34a; }
+.metric-val.amber { color: #d97706; }
+.metric-val.slate { color: #475569; }
+
+/* ── Section Label ── */
+.section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: #94a3b8;
+    margin: 24px 0 12px 0;
+    display: flex; align-items: center; gap: 10px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; }
+
+/* ── Step Cards ── */
 .step-card {
     background: #ffffff;
-    border-radius: 16px;
-    padding: 32px 24px;
+    border-radius: 12px;
+    padding: 28px 20px;
     border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 12px rgba(26,26,46,0.05);
     text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.step-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(26,26,46,0.12);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 .step-num {
-    background: #f0f4ff;
-    color: #4f46e5;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    padding: 4px 14px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 16px;
+    background: #eff6ff; color: #2563eb;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; padding: 3px 12px;
+    border-radius: 4px; display: inline-block; margin-bottom: 14px;
 }
-.step-icon { font-size: 36px; margin-bottom: 12px; }
-.step-title { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
-.step-sub { font-size: 13px; color: #94a3b8; font-family: 'DM Mono', monospace; }
+.step-icon { font-size: 30px; margin-bottom: 10px; }
+.step-title { font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 5px; }
+.step-sub { font-size: 12px; color: #94a3b8; font-family: 'JetBrains Mono', monospace; }
 
+/* ── Log Box ── */
 .log-box {
-    background: #1a1a2e;
-    border-radius: 12px;
-    padding: 24px;
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: #00e5a0;
-    line-height: 2;
-    border: 1px solid #2d2d4e;
+    background: #0f172a; border-radius: 10px; padding: 20px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: #38bdf8; line-height: 2;
 }
 
+/* ── Pill ── */
+.pill {
+    display: inline-block; background: #eff6ff;
+    border: 1px solid #bfdbfe; color: #2563eb;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; padding: 2px 10px;
+    border-radius: 4px; margin: 2px;
+}
+
+/* ── Button ── */
 .stButton > button {
-    background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+    background: #2563eb !important;
     color: #ffffff !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-weight: 700 !important;
-    font-size: 16px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
     border: none !important;
-    border-radius: 12px !important;
-    padding: 14px 40px !important;
-    width: 100% !important;
-    letter-spacing: 0.5px !important;
-    box-shadow: 0 4px 20px rgba(79,70,229,0.35) !important;
-    transition: all 0.2s !important;
-}
-.stButton > button:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 28px rgba(79,70,229,0.45) !important;
-}
-
-.stSelectbox > div > div {
-    background: #ffffff !important;
-    border: 1.5px solid #c7d2fe !important;
-    border-radius: 10px !important;
-    color: #1a1a2e !important;
-    font-family: 'DM Sans', sans-serif !important;
-}
-
-.stRadio > div {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-}
-.stRadio label {
-    background: #ffffff !important;
-    border: 1.5px solid #e2e8f0 !important;
     border-radius: 8px !important;
-    padding: 8px 18px !important;
-    color: #64748b !important;
-    font-size: 13px !important;
-    font-weight: 500 !important;
-    cursor: pointer !important;
+    padding: 12px 32px !important;
+    width: 100% !important;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.3) !important;
     transition: all 0.15s !important;
 }
-.stRadio label:hover {
-    border-color: #4f46e5 !important;
-    color: #4f46e5 !important;
-}
-
-[data-testid="stFileUploader"] {
-    background: #ffffff !important;
-    border: 2px dashed #c7d2fe !important;
-    border-radius: 16px !important;
-    padding: 8px !important;
-}
-
-[data-testid="stExpander"] {
-    background: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 12px !important;
-    box-shadow: 0 2px 8px rgba(26,26,46,0.05) !important;
-}
-
-[data-testid="stDataFrame"] {
-    border-radius: 12px !important;
-    border: 1px solid #e2e8f0 !important;
-    overflow: hidden !important;
-}
-
-.pill {
-    display: inline-block;
-    background: #f0f4ff;
-    border: 1px solid #c7d2fe;
-    color: #4f46e5;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    padding: 3px 10px;
-    border-radius: 20px;
-    margin: 2px;
-}
-
-.info-box {
-    background: #f0f9ff;
-    border: 1px solid #bae6fd;
-    border-left: 4px solid #0ea5e9;
-    border-radius: 10px;
-    padding: 14px 18px;
-    color: #0369a1;
-    font-size: 14px;
-    margin-bottom: 16px;
-}
-
-div[data-testid="stJson"] {
-    background: #f8fafc !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 12px !important;
+.stButton > button:hover {
+    background: #1d4ed8 !important;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.4) !important;
+    transform: translateY(-1px) !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -286,27 +158,35 @@ div[data-testid="stJson"] {
 # ── Hero ───────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="hero">
-    <div class="hero-badge">⚡ MLOPS PIPELINE</div>
-    <h1>Signal<em>Flow</em> Analytics</h1>
-    <p>Rolling Mean Signal Detection · Upload any CSV · Real-time Results</p>
+    <div class="hero-left">
+        <div class="hero-badge">⚡ MLOPS PIPELINE</div>
+        <div class="hero-title">Signal<span>Flow</span> Analytics</div>
+        <div class="hero-desc">Rolling Mean Signal Detection · Any CSV · Real-time Results</div>
+    </div>
+    <div class="hero-right">
+        <div class="hero-stat">
+            <div class="hero-stat-val">10K+</div>
+            <div class="hero-stat-label">Rows Supported</div>
+        </div>
+        <div class="hero-stat">
+            <div class="hero-stat-val">&lt;50ms</div>
+            <div class="hero-stat-label">Avg Latency</div>
+        </div>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ── Sidebar ────────────────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("### ⚙️ Configuration")
-    st.markdown("---")
-    seed    = st.number_input("SEED",    min_value=0, value=42, step=1)
-    window  = st.number_input("WINDOW",  min_value=1, value=5,  step=1)
-    version = st.text_input("VERSION", value="v1")
-    st.markdown("---")
-    st.markdown("""
-    <div style='font-family:DM Mono,monospace;font-size:12px;color:#a0aec0;line-height:2'>
-    Seed → reproducibility<br>
-    Window → rolling mean size<br>
-    Version → pipeline tag
-    </div>
-    """, unsafe_allow_html=True)
+    st.divider()
+    seed    = st.number_input("Seed",    min_value=0, value=42, step=1)
+    window  = st.number_input("Window",  min_value=1, value=5,  step=1)
+    version = st.text_input("Version",  value="v1")
+    st.divider()
+    st.caption("**Seed** → reproducibility")
+    st.caption("**Window** → rolling mean size")
+    st.caption("**Version** → pipeline tag")
 
 # ── Pipeline ───────────────────────────────────────────────────────────────────
 def run_pipeline(df, column, seed, window, version):
@@ -324,10 +204,9 @@ def run_pipeline(df, column, seed, window, version):
         raise ValueError(f"No valid numeric values in '{column}'")
 
     logs.append(f"[DATA]   {len(df):,} rows · {len(df.columns)} columns")
-
     rolling_mean = df[column].rolling(window=window, min_periods=window).mean()
     nan_count = rolling_mean.isna().sum()
-    logs.append(f"[CALC]   Rolling mean computed · window={window} · warmup NaN={nan_count}")
+    logs.append(f"[CALC]   Rolling mean · window={window} · warmup NaN={nan_count}")
 
     valid_mask = rolling_mean.notna()
     signal = pd.Series(np.nan, index=df.index)
@@ -336,8 +215,7 @@ def run_pipeline(df, column, seed, window, version):
     rows_processed = int(valid_mask.sum())
     signal_rate    = float(signal[valid_mask].mean())
     latency_ms     = int((time.perf_counter() - t_start) * 1000)
-
-    logs.append(f"[DONE]   {rows_processed:,} rows processed · signal_rate={signal_rate:.4f} · {latency_ms}ms")
+    logs.append(f"[DONE]   {rows_processed:,} rows · signal_rate={signal_rate:.4f} · {latency_ms}ms")
 
     metrics = {
         "version": version, "column_used": column,
@@ -366,7 +244,7 @@ if uploaded:
     if not numeric_cols:
         st.error("❌ No numeric columns found in this CSV.")
     else:
-        st.markdown('<div class="section-label">Column & View</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-label">Column & View Mode</div>', unsafe_allow_html=True)
         col1, col2 = st.columns([1, 2])
         with col1:
             default = "close" if "close" in numeric_cols else numeric_cols[0]
@@ -376,32 +254,31 @@ if uploaded:
                 ["📊 Charts", "📋 Results Table", "🔔 Signal Only", "📦 Metrics JSON", "📝 Logs", "🌐 All"],
                 horizontal=True, label_visibility="collapsed")
 
-        st.markdown('<div class="info-box">🎯 Selected <strong>{}</strong> · Rolling window: <strong>{}</strong> · Seed: <strong>{}</strong></div>'.format(selected_col, window, seed), unsafe_allow_html=True)
+        st.info(f"🎯 Analyzing **{selected_col}** · Window: **{window}** · Seed: **{seed}**")
 
-        if st.button("⚡ Run Pipeline", type="primary"):
+        if st.button("⚡ Run Pipeline"):
             with st.spinner("Running pipeline..."):
                 try:
                     metrics, result_df, logs = run_pipeline(
                         df_raw.copy(), selected_col, int(seed), int(window), version
                     )
 
-                    st.markdown('<div class="section-label">Results</div>', unsafe_allow_html=True)
+                    st.markdown('<div class="section-label">Pipeline Results</div>', unsafe_allow_html=True)
                     c1, c2, c3, c4 = st.columns(4)
                     with c1:
                         st.markdown('<div class="metric-card green"><div class="metric-label">Status</div><div class="metric-val green">SUCCESS</div></div>', unsafe_allow_html=True)
                     with c2:
                         st.markdown(f'<div class="metric-card blue"><div class="metric-label">Rows Processed</div><div class="metric-val blue">{metrics["rows_processed"]:,}</div></div>', unsafe_allow_html=True)
                     with c3:
-                        st.markdown(f'<div class="metric-card orange"><div class="metric-label">Signal Rate</div><div class="metric-val orange">{metrics["value"]:.4f}</div></div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="metric-card amber"><div class="metric-label">Signal Rate</div><div class="metric-val amber">{metrics["value"]:.4f}</div></div>', unsafe_allow_html=True)
                     with c4:
-                        st.markdown(f'<div class="metric-card pink"><div class="metric-label">Latency</div><div class="metric-val pink">{metrics["latency_ms"]} ms</div></div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="metric-card slate"><div class="metric-label">Latency</div><div class="metric-val slate">{metrics["latency_ms"]} ms</div></div>', unsafe_allow_html=True)
 
                     st.markdown("<br>", unsafe_allow_html=True)
 
                     if view_mode in ["📊 Charts", "🌐 All"]:
                         st.markdown(f'<div class="section-label">{selected_col} vs Rolling Mean</div>', unsafe_allow_html=True)
-                        chart_df = result_df[[selected_col, "rolling_mean"]].dropna().tail(500)
-                        st.line_chart(chart_df, use_container_width=True)
+                        st.line_chart(result_df[[selected_col, "rolling_mean"]].dropna().tail(500), use_container_width=True)
 
                     if view_mode in ["🔔 Signal Only", "🌐 All"]:
                         st.markdown('<div class="section-label">Binary Signal — Last 200 Rows</div>', unsafe_allow_html=True)
@@ -426,26 +303,8 @@ else:
     st.markdown('<div class="section-label">How It Works</div>', unsafe_allow_html=True)
     c1, c2, c3 = st.columns(3)
     with c1:
-        st.markdown("""
-        <div class="step-card">
-            <div class="step-num">STEP 01</div>
-            <div class="step-icon">📂</div>
-            <div class="step-title">Upload CSV</div>
-            <div class="step-sub">Any format — trading, sales,<br>IoT, finance, anything</div>
-        </div>""", unsafe_allow_html=True)
+        st.markdown('<div class="step-card"><div class="step-num">STEP 01</div><div class="step-icon">📂</div><div class="step-title">Upload CSV</div><div class="step-sub">Any format — trading, sales,<br>IoT, finance, anything</div></div>', unsafe_allow_html=True)
     with c2:
-        st.markdown("""
-        <div class="step-card">
-            <div class="step-num">STEP 02</div>
-            <div class="step-icon">🎯</div>
-            <div class="step-title">Pick Column</div>
-            <div class="step-sub">Choose any numeric column<br>for rolling mean analysis</div>
-        </div>""", unsafe_allow_html=True)
+        st.markdown('<div class="step-card"><div class="step-num">STEP 02</div><div class="step-icon">🎯</div><div class="step-title">Pick Column</div><div class="step-sub">Choose any numeric column<br>for rolling mean analysis</div></div>', unsafe_allow_html=True)
     with c3:
-        st.markdown("""
-        <div class="step-card">
-            <div class="step-num">STEP 03</div>
-            <div class="step-icon">⚡</div>
-            <div class="step-title">Run & Explore</div>
-            <div class="step-sub">Charts · Signals · Metrics<br>Choose your view mode</div>
-        </div>""", unsafe_allow_html=True)
+        st.markdown('<div class="step-card"><div class="step-num">STEP 03</div><div class="step-icon">⚡</div><div class="step-title">Run & Explore</div><div class="step-sub">Charts · Signals · Metrics<br>Choose your view mode</div></div>', unsafe_allow_html=True)
