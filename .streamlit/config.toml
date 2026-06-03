@@ -1,9 +1,7 @@
-@"
-[theme]
+﻿[theme]
 base = "light"
 primaryColor = "#4f46e5"
-backgroundColor = "#f0f4ff"
-secondaryBackgroundColor = "#ffffff"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f8f9ff"
 textColor = "#1a1a2e"
 font = "sans serif"
-"@ | Out-File -FilePath ".streamlit\config.toml" -Encoding utf8
