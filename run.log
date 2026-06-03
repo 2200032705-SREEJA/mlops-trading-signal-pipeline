@@ -1,0 +1,12 @@
+2026-04-22T07:02:44  INFO      ========== JOB START ==========
+2026-04-22T07:02:44  INFO      Input=data.csv  Config=config.yaml  Output=metrics.json  Log=run.log
+2026-04-22T07:02:44  INFO      Config loaded — seed=42  window=5  version=v1
+2026-04-22T07:02:44  INFO      NumPy random seed set to 42
+2026-04-22T07:02:44  INFO      Dataset loaded — 10000 rows, columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume_btc', 'volume_usd']
+2026-04-22T07:02:44  INFO      Computing rolling mean (window=5)…
+2026-04-22T07:02:44  INFO      Rolling mean computed — window=5, warm-up NaN rows=4
+2026-04-22T07:02:44  INFO      Generating binary signal…
+2026-04-22T07:02:44  INFO      Signal generated — 9996 valid rows, signal_rate=0.499100
+2026-04-22T07:02:44  INFO      Metrics — rows_processed=9996  signal_rate=0.4991  latency_ms=48
+2026-04-22T07:02:44  INFO      Metrics written to metrics.json
+2026-04-22T07:02:44  INFO      ========== JOB END — SUCCESS ==========
